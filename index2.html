@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 3vw;
+        }
+
+        .grid {
+            height: 700px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 0.5fr 4fr 0.5fr;
+            grid-template-areas:
+                "header header"
+                "main aside"
+                "footer footer";
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+        header {
+            grid-area: header;
+            background-color: rgb(155, 159, 159);
+            padding: 20px;
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: rgb(123, 179, 132);
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            background-color: bisque;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 60% 20% 20%;
+        }
+
+        .main1 {
+            grid-column: 1/4;
+        }
+
+        .main3 {
+            grid-column: 1/4;
+            background-color: yellow;
+
+        }
+
+        .main2 {
+            background-color: yellow;
+        }
+
+        .main1,
+        .main2,
+        .main3 {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        footer {
+            display: grid;
+            grid-area: footer;
+            background-color: rgb(155, 159, 159);
+            grid-template-columns: repeat(4, 25%);
+            justify-content: space-around;
+        }
+
+        .end {
+            padding: 10px;
+            margin: 10px;
+            background-color: white;
+        }
+
+        @media screen and (min-width:768px) and (max-width:1023px) {
+            footer {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            aside {
+                background-color: aqua;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            footer {
+                display: none;
+            }
+
+            .grid {
+                max-width: 100%;
+                grid-template-rows: 10vh 50vh 20vh;
+
+                grid-template-areas:
+                    "header header"
+                    "main main"
+                    "aside aside";
+            }
+        }
+
+        @media screen and (orientation: landscape) and (min-width:768px) {
+            footer {
+                display: grid;
+                grid-area: footer;
+                background-color: rgb(155, 159, 159);
+                grid-template-columns: repeat(4, 25%);
+                justify-content: space-around;
+            }
+
+            .grid {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <header>[Шапка страницы]</header>
+        <main>
+            <div class="main1">[Основная часть]</div>
+            <div class="main2">[Еще 1]</div>
+            <div class="main2">[Еще 2]</div>
+            <div class="main3">[Еще 3]</div>
+        </main>
+        <aside>[Боковая область]</aside>
+        <footer>
+            <div class="end">[Секция футера 1]</div>
+            <div class="end">[Секция футера 2]</div>
+            <div class="end">[Секция футера 3]</div>
+            <div class="end">[Секция футера 4]</div>
+        </footer>
+    </div>
+</body>
+
+</html>
